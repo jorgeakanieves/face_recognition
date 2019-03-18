@@ -1,8 +1,24 @@
-FROM debian:8
-
+FROM debian:jessie
 MAINTAINER Jorge Nieves <jene@gft.com>
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+
+# Install
+RUN apt-get update -y  && \
+    DEBIAN_FRONTEND=noninteractive \
+        apt-get install --no-install-recommends -y -q \
+            build-essential \
+            python2.7       \
+            python2.7-dev   \
+            python-pip        && \
+    \
+    \
+    pip install --upgrade pip virtualenv  && \
+    \
+    \
+    apt-get clean  && \
+    rm -rf /var/lib/apt/lists/*
+
 
 RUN apt-get update --fix-missing && apt-get install -y wget bzip2 ca-certificates \
     libglib2.0-0 libxext6 libsm6 libxrender1 \
