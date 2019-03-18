@@ -36,14 +36,29 @@ class training:
                 nrof_images = len(path)
                 nrof_batches_per_epoch = int(math.ceil(1.0 * nrof_images / batch_size))
                 emb_array = np.zeros((nrof_images, embedding_size))
+                #print(str(nrof_batches_per_epoch))
                 for i in range(nrof_batches_per_epoch):
                     start_index = i * batch_size
                     end_index = min((i + 1) * batch_size, nrof_images)
+                    print("start " + str(start_index))
+                    print("end " + str(end_index))
                     paths_batch = path[start_index:end_index]
+
+                    e=0
+                    for p in paths_batch:
+                        print(e)
+                        e = e+1
+                        print(p)
+
                     images = facenet.load_data(paths_batch, False, False, image_size)
+
                     feed_dict = {images_placeholder: images, phase_train_placeholder: False}
+
                     emb_array[start_index:end_index, :] = sess.run(embeddings, feed_dict=feed_dict)
 
+                    print("loop" + str(i))
+
+                print('Expand user')
                 classifier_file_name = os.path.expanduser(self.classifier_filename)
 
                 # Training Started

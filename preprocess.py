@@ -47,6 +47,7 @@ class preprocesses:
                     filename = os.path.splitext(os.path.split(image_path)[1])[0]
                     output_filename = os.path.join(output_class_dir, filename + '.png')
                     print("Image: %s" % image_path)
+                    print("output path" + output_filename)
                     if not os.path.exists(output_filename):
                         try:
                             img = misc.imread(image_path)
