@@ -23,7 +23,10 @@ https://www.linkedin.com/in/jorgenieves/
 
 ## Resources
 
-https://github.com/AISangam/Facenet-Real-time-face-recognition-using-deep-learning-Tensorflow repository
+https://github.com/AISangam/Facenet-Real-time-face-recognition-using-deep-learning-Tensorflow
+
 http://www.aisangam.com/blog/real-time-face-recognition-using-facenet/
+
 https://youtu.be/dLrWDUPkpIg?list=PLCK5Mm9zwPkEhwu2OOw2CgO5ikoLdR36l
+
 https://github.com/davidsandberg/facenet
