@@ -27,7 +27,9 @@ class preprocesses:
 
         minsize = 20  # minimum size of face
         threshold = [0.6, 0.7, 0.7]  # three steps's threshold
+        #threshold = [0.1, 0.1, 0.1]  # three steps's threshold
         factor = 0.709  # scale factor
+        #factor = 0.8  # scale factor
         margin = 44
         image_size = 182
 
@@ -66,6 +68,7 @@ class preprocesses:
 
                             bounding_boxes, _ = detect_face.detect_face(img, minsize, pnet, rnet, onet, threshold,
                                                                         factor)
+                            print(bounding_boxes)
                             nrof_faces = bounding_boxes.shape[0]
                             print('No of Detected Face: %d' % nrof_faces)
                             if nrof_faces > 0:

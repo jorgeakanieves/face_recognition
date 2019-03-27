@@ -12,7 +12,7 @@ import time
 import pickle
 import sys
 
-img_path='abc.jpg'
+img_path='abc7.jpg'
 modeldir = './model/20170511-185253.pb'
 classifier_filename = './class/classifier.pkl'
 npy='./npy'
@@ -116,6 +116,7 @@ with tf.Graph().as_default():
                     text_x = bb[i][0]
                     text_y = bb[i][3] + 20
                     print('Result Indices: ', best_class_indices[0])
+                    print('Photo is: ', HumanNames[best_class_indices[0]])
                     print(HumanNames)
                     for H_i in HumanNames:
                         # print(H_i)

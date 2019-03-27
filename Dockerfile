@@ -3,6 +3,8 @@ MAINTAINER Jorge Nieves <jene@gft.com>
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
+EXPOSE 8888
+
 # Install
 RUN apt-get update -y  && \
     DEBIAN_FRONTEND=noninteractive \
@@ -58,12 +60,19 @@ RUN pip install text_unidecode \
 #RUN pip install unidecode==0.4.21
 && pip install opencv-contrib-python \
 #RUN conda install -y py-xgboost
-&& python -m pip install jupyter
+&& python -m pip install jupyter \
+&& pip install ipython && python2 -m pip install ipykernel && python2 -m ipykernel install --user
 
 #Installing dlib (version 19.9).
 #RUN wget http://dlib.net/files/dlib-19.9.zip && unzip dlib-19.9.zip && cd dlib-19.9 && python setup.py install && cd ..
 
 WORKDIR /face-recognition
 
-CMD ["sh", "-c", "jupyter notebook --port=8888 --no-browser --ip=* --allow-root"]
+# Create a new system user
+RUN useradd -ms /bin/bash jupyter
+
+# Change to this new user
+USER jupyter
+
+CMD ["sh", "-c", "jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root"]
 #CMD []
