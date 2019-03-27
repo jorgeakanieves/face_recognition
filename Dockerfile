@@ -1,5 +1,5 @@
 FROM debian:jessie
-MAINTAINER Jorge Nieves <jene@gft.com>
+MAINTAINER Jorge Nieves
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
