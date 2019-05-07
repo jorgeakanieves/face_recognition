@@ -12,7 +12,7 @@ import time
 import pickle
 import sys
 
-img_path='abc7.jpg'
+img_path='/face-recognition/org_img/móvil/DCIM/Camera/20180507_191544.jpg'
 modeldir = './model/20170511-185253.pb'
 classifier_filename = './class/classifier.pkl'
 npy='./npy'
